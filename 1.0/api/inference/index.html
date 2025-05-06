@@ -12172,9 +12172,7 @@ num_key_value_heads, seqlen, head_dim) to (batch, num_attention_heads, seqlen, h
 <span class="normal">250</span>
 <span class="normal">251</span>
 <span class="normal">252</span>
-<span class="normal">253</span>
-<span class="normal">254</span>
-<span class="normal">255</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span>
+<span class="normal">253</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span>
     <span class="n">dataset_name_or_path</span><span class="p">,</span>
     <span class="n">splits</span><span class="p">,</span>
     <span class="n">validation_ratio</span><span class="p">,</span>
@@ -12272,13 +12270,11 @@ num_key_value_heads, seqlen, head_dim) to (batch, num_attention_heads, seqlen, h
 
         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">progress_files</span><span class="p">[</span><span class="n">split</span><span class="p">])</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
-                <span class="n">datum</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
-                <span class="n">datum</span> <span class="o">=</span> <span class="n">extract_fields</span><span class="p">(</span><span class="n">datum</span><span class="p">)</span>
+                <span class="n">datum</span> <span class="o">=</span> <span class="n">extract_fields</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">line</span><span class="p">))</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">datum</span><span class="p">:</span>
+                    <span class="k">continue</span>
                 <span class="k">if</span> <span class="n">datum</span><span class="p">[</span><span class="s2">&quot;instance_id&quot;</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">valid_instance_ids</span><span class="p">:</span>
                     <span class="n">invalid_instances</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">datum</span><span class="p">[</span><span class="s2">&quot;instance_id&quot;</span><span class="p">])</span>
-                    <span class="k">continue</span>
-                <span class="n">datum</span> <span class="o">=</span> <span class="n">extract_fields</span><span class="p">(</span><span class="n">datum</span><span class="p">)</span>
-                <span class="k">if</span> <span class="ow">not</span> <span class="n">datum</span><span class="p">:</span>
                     <span class="k">continue</span>
                 <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">columns</span><span class="p">:</span>
                     <span class="n">split_data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">datum</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span>
