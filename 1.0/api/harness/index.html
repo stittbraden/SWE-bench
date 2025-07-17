@@ -33731,14 +33731,14 @@ This is the setup script for the environment image.</p>
     <span class="k">for</span> <span class="n">pkg_to_replace</span><span class="p">,</span> <span class="n">replacement</span> <span class="ow">in</span> <span class="n">REPLACE_REQ_PACKAGES</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">replacement</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">pip_portion</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span>
-                <span class="sa">rf</span><span class="s2">&quot;^(\s*-\s*)</span><span class="si">{</span><span class="n">re</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">pkg_to_replace</span><span class="p">)</span><span class="si">}</span><span class="s2">(?=[=\s]|$).*\n?&quot;</span><span class="p">,</span>
+                <span class="sa">rf</span><span class="s2">&quot;^(\s*-\s*)</span><span class="si">{</span><span class="n">re</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">pkg_to_replace</span><span class="p">)</span><span class="si">}</span><span class="s2">([&lt;&gt;~]=?.*|$)\n?&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;&quot;</span><span class="p">,</span>
                 <span class="n">pip_portion</span><span class="p">,</span>
                 <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">MULTILINE</span><span class="p">,</span>
             <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">pip_portion</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span>
-                <span class="sa">rf</span><span class="s2">&quot;^(\s*-\s*)</span><span class="si">{</span><span class="n">re</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">pkg_to_replace</span><span class="p">)</span><span class="si">}</span><span class="s2">(?=[=\s]|$)&quot;</span><span class="p">,</span>
+                <span class="sa">rf</span><span class="s2">&quot;^(\s*-\s*)</span><span class="si">{</span><span class="n">re</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">pkg_to_replace</span><span class="p">)</span><span class="si">}</span><span class="s2">([&lt;&gt;=!~]=?.*|$)&quot;</span><span class="p">,</span>
                 <span class="sa">rf</span><span class="s2">&quot;\1</span><span class="si">{</span><span class="n">replacement</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
                 <span class="n">pip_portion</span><span class="p">,</span>
                 <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">MULTILINE</span><span class="p">,</span>
@@ -34025,7 +34025,7 @@ This is the setup script for the environment image.</p>
     <span class="k">for</span> <span class="n">pkg_to_replace</span><span class="p">,</span> <span class="n">replacement</span> <span class="ow">in</span> <span class="n">REPLACE_REQ_PACKAGES</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">replacement</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">requirements_text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span>
-                <span class="sa">rf</span><span class="s2">&quot;^</span><span class="si">{</span><span class="n">re</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">pkg_to_replace</span><span class="p">)</span><span class="si">}</span><span class="s2">(?=[&lt;&gt;=!~\s]|$)&quot;</span><span class="p">,</span>
+                <span class="sa">rf</span><span class="s2">&quot;^</span><span class="si">{</span><span class="n">re</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">pkg_to_replace</span><span class="p">)</span><span class="si">}</span><span class="s2">([&lt;&gt;=!~]=?.*|$)\n?&quot;</span><span class="p">,</span>
                 <span class="s2">&quot;&quot;</span><span class="p">,</span>
                 <span class="n">requirements_text</span><span class="p">,</span>
                 <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">MULTILINE</span><span class="p">,</span>
@@ -34033,7 +34033,7 @@ This is the setup script for the environment image.</p>
         <span class="k">else</span><span class="p">:</span>
             <span class="c1"># this replacement removes version specifier of the original package</span>
             <span class="n">requirements_text</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span>
-                <span class="sa">rf</span><span class="s2">&quot;^</span><span class="si">{</span><span class="n">re</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">pkg_to_replace</span><span class="p">)</span><span class="si">}</span><span class="s2">(?=[&lt;&gt;=!~\s]|$)&quot;</span><span class="p">,</span>
+                <span class="sa">rf</span><span class="s2">&quot;^</span><span class="si">{</span><span class="n">re</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">pkg_to_replace</span><span class="p">)</span><span class="si">}</span><span class="s2">([&lt;&gt;=!~]=?.*|$)&quot;</span><span class="p">,</span>
                 <span class="n">replacement</span><span class="p">,</span>
                 <span class="n">requirements_text</span><span class="p">,</span>
                 <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">MULTILINE</span><span class="p">,</span>
