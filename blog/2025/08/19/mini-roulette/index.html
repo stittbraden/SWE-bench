@@ -1392,7 +1392,7 @@ has less than 100 lines of code (and that's literally the agent we use for our S
 </details>
 <p>Now all we change is that instead of <code>model.query(history)</code>, we do <code>random.choice([model1, model2]).query(history)</code>,
 that's it! </p>
-<p>Other than configuring the models, the <a href="https://github.com/SWE-agent/mini-swe-agent/blob/main/src/minisweagent/config/extra/swebench.yaml">prompts also stay the same</a>.</p>
+<p>Other than configuring the models, the <a href="https://github.com/SWE-agent/mini-swe-agent/blob/main/src/minisweagent/config/extra/swebench_roulette.yaml">prompts also stay the same</a>.</p>
 <figure>
   <a class="glightbox" href="../../../../250820-mini-roulette/roulette_bar_v4.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="We actually get higher SWE-bench scores than each of the models by themselves" src="../../../../250820-mini-roulette/roulette_bar_v4.svg" /></a>
 <br />
@@ -1495,8 +1495,16 @@ However, none of these combinations seemed to be particularly practically releva
 <li>For combinations with Gemini 2.5 Pro, we repeated them with slightly more instances, but did not see particular improvements.</li>
 </ul>
 <h2 id="running-it-yourself">Running it yourself</h2>
-<p>To make this a bit nicer to use, we made a small wrapper model class <a href="https://github.com/SWE-agent/mini-swe-agent/blob/_/src/minisweagent/models/roulette.py">here</a>).</p>
-<p>We will update <a href="https://mini-swe-agent.com">mini-swe-agent</a> to include this model class on the main branch shortly.</p>
+<p>To make this a bit nicer to use, we made a small wrapper model class <a href="https://github.com/SWE-agent/mini-swe-agent/blob/main/src/minisweagent/models/extra/roulette.py">here</a>).</p>
+<p>Currently, you can use it with SWE-bench evaluation simply by switching to the <a href="https://github.com/SWE-agent/mini-swe-agent/blob/main/src/minisweagent/config/extra/swebench_roulette.yaml"><code>swebench_roulette</code> config</a>:</p>
+<div class="highlight"><pre><span></span><code>mini-extra<span class="w"> </span>swebench<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--subset<span class="w"> </span>verified<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--split<span class="w"> </span><span class="nb">test</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--shuffle<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-o<span class="w"> </span>roulette-sonnet4-gpt5<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--workers<span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-c<span class="w"> </span>swebench_roulette
+</code></pre></div>
 
 
 
