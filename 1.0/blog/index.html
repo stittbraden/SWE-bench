@@ -8,28 +8,28 @@
       
       
       
-        <link rel="canonical" href="https://swebench.com/latest/reference/harness/">
+        <link rel="canonical" href="https://swebench.com/latest/blog/">
       
       
-        <link rel="prev" href="../../guides/create_rag_datasets/">
+        <link rel="prev" href="../api/versioning/">
       
       
-        <link rel="next" href="../inference/">
+        <link rel="next" href="category/benchmarks/">
       
       
-      <link rel="icon" href="../../assets/swellama.svg">
+      <link rel="icon" href="../assets/swellama.svg">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
     
     
       
-        <title>The Harness - SWE-bench</title>
+        <title>Blog - SWE-bench</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -54,13 +54,13 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
     
-      <link rel="stylesheet" href="../../css/custom.css">
+      <link rel="stylesheet" href="../css/custom.css">
     
-      <link rel="stylesheet" href="../../css/mkdocstrings.css">
+      <link rel="stylesheet" href="../css/mkdocstrings.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -77,7 +77,7 @@
     
     
     
-   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
     html.glightbox-open { overflow: initial; height: 100%; }
     .gslide-title { margin-top: 0px; user-select: text; }
     .gslide-desc { color: #666; user-select: text; }
@@ -86,7 +86,7 @@
     .gdesc-inner { font-size: 0.75rem; }
     body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
     body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
-    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -105,7 +105,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#evaluation-harness-reference" class="md-skip">
+        <a href="#blog" class="md-skip">
           Skip to content
         </a>
       
@@ -125,9 +125,9 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="SWE-bench" class="md-header__button md-logo" aria-label="SWE-bench" data-md-component="logo">
+    <a href=".." title="SWE-bench" class="md-header__button md-logo" aria-label="SWE-bench" data-md-component="logo">
       
-  <img src="../../assets/swellama.svg" alt="logo">
+  <img src="../assets/swellama.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -144,7 +144,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              The Harness
+              Blog
             
           </span>
         </div>
@@ -280,7 +280,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../.." class="md-tabs__link">
+        <a href=".." class="md-tabs__link">
           
   
   
@@ -298,13 +298,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../guides/quickstart/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../guides/quickstart/" class="md-tabs__link">
           
   
   
@@ -322,11 +320,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../blog/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
           
   
   
@@ -368,9 +368,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="SWE-bench" class="md-nav__button md-logo" aria-label="SWE-bench" data-md-component="logo">
+    <a href=".." title="SWE-bench" class="md-nav__button md-logo" aria-label="SWE-bench" data-md-component="logo">
       
-  <img src="../../assets/swellama.svg" alt="logo">
+  <img src="../assets/swellama.svg" alt="logo">
 
     </a>
     SWE-bench
@@ -444,7 +444,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../.." class="md-nav__link ">
+            <a href=".." class="md-nav__link ">
               
   
   
@@ -479,7 +479,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../installation/" class="md-nav__link">
+      <a href="../installation/" class="md-nav__link">
         
   
   
@@ -502,7 +502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../faq/" class="md-nav__link">
+      <a href="../faq/" class="md-nav__link">
         
   
   
@@ -529,10 +529,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -554,20 +552,17 @@
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   
@@ -580,7 +575,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             User Guides
@@ -594,7 +589,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/quickstart/" class="md-nav__link">
+      <a href="../guides/quickstart/" class="md-nav__link">
         
   
   
@@ -617,7 +612,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/evaluation/" class="md-nav__link">
+      <a href="../guides/evaluation/" class="md-nav__link">
         
   
   
@@ -640,7 +635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/docker_setup/" class="md-nav__link">
+      <a href="../guides/docker_setup/" class="md-nav__link">
         
   
   
@@ -663,7 +658,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/datasets/" class="md-nav__link">
+      <a href="../guides/datasets/" class="md-nav__link">
         
   
   
@@ -686,7 +681,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../guides/create_rag_datasets/" class="md-nav__link">
+      <a href="../guides/create_rag_datasets/" class="md-nav__link">
         
   
   
@@ -706,10 +701,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -726,11 +719,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
         
           
           <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
@@ -746,7 +739,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_6">
             <span class="md-nav__icon md-icon"></span>
             Reference
@@ -757,32 +750,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    The Harness
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../reference/harness/" class="md-nav__link">
         
   
   
@@ -793,176 +764,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      Overview
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#core-components" class="md-nav__link">
-    <span class="md-ellipsis">
-      Core Components
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#architecture" class="md-nav__link">
-    <span class="md-ellipsis">
-      Architecture
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#evaluation-process" class="md-nav__link">
-    <span class="md-ellipsis">
-      Evaluation Process
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      Usage
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Usage">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#basic-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      Basic Example
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#verifying-gold-patches" class="md-nav__link">
-    <span class="md-ellipsis">
-      Verifying Gold Patches
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cloud-based-evaluation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cloud-based Evaluation
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      Parameters
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cache-levels" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cache Levels
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dataset-options" class="md-nav__link">
-    <span class="md-ellipsis">
-      Dataset Options
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resource-requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resource Requirements
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#performance-benchmarks" class="md-nav__link">
-    <span class="md-ellipsis">
-      Performance Benchmarks
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#choosing-max_workers" class="md-nav__link">
-    <span class="md-ellipsis">
-      Choosing max_workers
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#log-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      Log Files
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Troubleshooting
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -975,7 +776,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../inference/" class="md-nav__link">
+      <a href="../reference/inference/" class="md-nav__link">
         
   
   
@@ -998,7 +799,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../versioning/" class="md-nav__link">
+      <a href="../reference/versioning/" class="md-nav__link">
         
   
   
@@ -1078,7 +879,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/harness/" class="md-nav__link">
+      <a href="../api/harness/" class="md-nav__link">
         
   
   
@@ -1101,7 +902,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/inference/" class="md-nav__link">
+      <a href="../api/inference/" class="md-nav__link">
         
   
   
@@ -1124,7 +925,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/versioning/" class="md-nav__link">
+      <a href="../api/versioning/" class="md-nav__link">
         
   
   
@@ -1159,6 +960,8 @@
       
   
   
+    
+  
   
   
     
@@ -1176,18 +979,21 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../blog/" class="md-nav__link ">
+            <a href="./" class="md-nav__link md-nav__link--active">
               
   
   
@@ -1200,13 +1006,13 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+              <label class="md-nav__link md-nav__link--active" for="__nav_4" id="__nav_4_label" tabindex="">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Blog
@@ -1269,7 +1075,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/archive/2025/" class="md-nav__link">
+      <a href="archive/2025/" class="md-nav__link">
         
   
   
@@ -1349,7 +1155,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/category/benchmarks/" class="md-nav__link">
+      <a href="category/benchmarks/" class="md-nav__link">
         
   
   
@@ -1374,7 +1180,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blog/category/mini-swe-agent/" class="md-nav__link">
+      <a href="category/mini-swe-agent/" class="md-nav__link">
         
   
   
@@ -1425,164 +1231,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      Overview
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#core-components" class="md-nav__link">
-    <span class="md-ellipsis">
-      Core Components
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#architecture" class="md-nav__link">
-    <span class="md-ellipsis">
-      Architecture
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#evaluation-process" class="md-nav__link">
-    <span class="md-ellipsis">
-      Evaluation Process
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      Usage
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Usage">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#basic-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      Basic Example
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#verifying-gold-patches" class="md-nav__link">
-    <span class="md-ellipsis">
-      Verifying Gold Patches
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#cloud-based-evaluation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cloud-based Evaluation
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      Parameters
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#cache-levels" class="md-nav__link">
-    <span class="md-ellipsis">
-      Cache Levels
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dataset-options" class="md-nav__link">
-    <span class="md-ellipsis">
-      Dataset Options
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resource-requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      Resource Requirements
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#performance-benchmarks" class="md-nav__link">
-    <span class="md-ellipsis">
-      Performance Benchmarks
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#choosing-max_workers" class="md-nav__link">
-    <span class="md-ellipsis">
-      Choosing max_workers
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#log-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      Log Files
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Troubleshooting
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1590,223 +1238,132 @@
             
           
           
-            <div class="md-content" data-md-component="content">
-              <article class="md-content__inner md-typeset">
-                
-                  
-
-
-  
-    <a href="https://github.com/SWE-bench/SWE-bench/edit/main/docs/reference/harness.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+  <div class="md-content" data-md-component="content">
+    <div class="md-content__inner">
+      <header class="md-typeset">
+        <h1 id="blog">Blog</h1>
+      </header>
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
-    </a>
-  
-  
-
-
-<h1 id="evaluation-harness-reference">Evaluation Harness Reference</h1>
-<p>This section documents the Docker-based evaluation harness for SWE-bench.</p>
-<h2 id="overview">Overview</h2>
-<p>The SWE-bench evaluation harness uses Docker containers to create reproducible environments for evaluating model-generated patches on software repositories. This containerized approach ensures consistent evaluation results across different platforms and eliminates environmental discrepancies.</p>
-<p>The <code>swebench.harness</code> module provides the main evaluation infrastructure for SWE-bench tasks. This module is responsible for setting up Docker environments, applying patches, running tests, and determining if the patches resolve issues.</p>
-<h2 id="core-components">Core Components</h2>
-<p>There are two important scripts in the <code>swebench.harness</code> module:</p>
-<ul>
-<li><code>swebench.harness.prepare_images</code>: This script can be used to build Docker images for task instances</li>
-<li><code>swebench.harness.run_evaluation</code>: This script is used to run the evaluation of a prediction file</li>
-</ul>
-<p>In general, you don't need to run <code>prepare_images</code> unless you're specifically interested in building Docker images locally. <code>run_evaluation</code> is the main script you'll use to run evaluations for all task instances in the SWE-bench datasets.</p>
-<h2 id="architecture">Architecture</h2>
-<p>The harness operates in three main layers:</p>
-<div class="highlight"><pre><span></span><code>┌─────────────────────────┐
-│   Instance Images       │  Problem-specific configurations
-├─────────────────────────┤
-│   Environment Images    │  Repository-specific dependencies
-├─────────────────────────┤
-│   Base Images           │  Language and tooling support
-└─────────────────────────┘
-</code></pre></div>
-<p>This layered architecture allows for efficient caching and reuse of common components while ensuring isolated evaluation for each task.</p>
-<h2 id="evaluation-process">Evaluation Process</h2>
-<p>The evaluation process follows these steps:</p>
-<ol>
-<li><strong>Setup</strong>: Prepare Docker images for each instance</li>
-<li><strong>Patch Application</strong>: Apply the model-generated patch to the codebase</li>
-<li><strong>Test Execution</strong>: Run the repository's test suite</li>
-<li><strong>Grading</strong>: Determine if the patch resolves the issue</li>
-<li><strong>Reporting</strong>: Calculate metrics and generate reports</li>
-</ol>
-<h2 id="usage">Usage</h2>
-<p>The main entry point for the evaluation harness is the <code>swebench.harness.run_evaluation</code> module.</p>
-<div class="highlight"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>swebench.harness.run_evaluation<span class="w"> </span>--help
-</code></pre></div>
-<h3 id="basic-example">Basic Example</h3>
-<div class="highlight"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>swebench.harness.run_evaluation<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--dataset_name<span class="w"> </span>princeton-nlp/SWE-bench_Lite<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--predictions_path<span class="w"> </span>/path/to/predictions.jsonl<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--max_workers<span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--run_id<span class="w"> </span>my_evaluation_run
-</code></pre></div>
-<h3 id="verifying-gold-patches">Verifying Gold Patches</h3>
-<p>To verify the gold patches (ground truth solutions):</p>
-<div class="highlight"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>swebench.harness.run_evaluation<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--predictions_path<span class="w"> </span>gold<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--max_workers<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--instance_ids<span class="w"> </span>sympy__sympy-20590<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--run_id<span class="w"> </span>validate-gold
-</code></pre></div>
-<h3 id="cloud-based-evaluation">Cloud-based Evaluation</h3>
-<p>The harness supports cloud-based evaluations using Modal:</p>
-<div class="highlight"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>swebench.harness.run_evaluation<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--predictions_path<span class="w"> </span>gold<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--max_workers<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--instance_ids<span class="w"> </span>sympy__sympy-20590<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--run_id<span class="w"> </span>validate-gold
-<span class="w">    </span>--modal<span class="w"> </span><span class="nb">true</span>
-</code></pre></div>
-<p>You can also use <a href="https://github.com/swe-bench/sb-cli">sb-cli</a>, a tool for running evaluations automatically on AWS.</p>
-<h2 id="parameters">Parameters</h2>
-<p>The harness accepts various parameters to configure the evaluation:</p>
-<ul>
-<li><code>--dataset_name</code>: The name of the dataset to evaluate on</li>
-<li><code>--split</code>: Split of the dataset</li>
-<li><code>--predictions_path</code>: Path to the predictions file (or "gold" for ground truth)</li>
-<li><code>--max_workers</code>: Number of parallel evaluation workers</li>
-<li><code>--run_id</code>: Identifier for the evaluation run</li>
-<li><code>--cache_level</code>: Level of caching for Docker images</li>
-<li><code>--clean</code>: Whether to clean up resources after evaluation</li>
-<li><code>--instance_ids</code>: Specific instances to evaluate (comma-separated)</li>
-<li><code>--open_file_limit</code>: Open file limit</li>
-<li><code>--force_rebuild</code>: Force rebuild all images</li>
-<li><code>--log_level</code>: Logging verbosity</li>
-<li><code>--namespace</code>: Namespace for images</li>
-<li><code>--timeout</code>: Maximum time (seconds) for evaluating each instance</li>
-<li><code>--modal</code>: If true, run on Modal</li>
-</ul>
-<p>For a complete list of arguments, run:
-<div class="highlight"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>swebench.harness.run_evaluation<span class="w"> </span>--help
-</code></pre></div></p>
-<h2 id="cache-levels">Cache Levels</h2>
-<p>The <code>--cache_level</code> parameter controls how Docker images are cached between runs:</p>
-<table>
-<thead>
-<tr>
-<th>Level</th>
-<th>Description</th>
-<th>Storage Impact</th>
-<th>Speed</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>none</code></td>
-<td>No caching</td>
-<td>Minimal (~120GB during run)</td>
-<td>Slowest</td>
-</tr>
-<tr>
-<td><code>base</code></td>
-<td>Cache only base image</td>
-<td>Minimal (~120GB during run)</td>
-<td>Slow</td>
-</tr>
-<tr>
-<td><code>env</code> (default)</td>
-<td>Cache base and environment images</td>
-<td>Moderate (~100GB)</td>
-<td>Moderate</td>
-</tr>
-<tr>
-<td><code>instance</code></td>
-<td>Cache all images</td>
-<td>High (~2,000GB)</td>
-<td>Fastest</td>
-</tr>
-</tbody>
-</table>
-<p>Most users should use the default <code>env</code> level, which provides a good balance between speed and storage usage.</p>
-<h2 id="dataset-options">Dataset Options</h2>
-<p>The harness supports evaluation on various SWE-bench datasets:</p>
-<ul>
-<li><strong>SWE-bench</strong>: The complete benchmark (<code>princeton-nlp/SWE-bench</code>)</li>
-<li><strong>SWE-bench Lite</strong>: A smaller subset for faster evaluation (<code>princeton-nlp/SWE-bench_Lite</code>)</li>
-<li><strong>SWE-bench Verified</strong>: 500 problems verified by software engineers (<code>princeton-nlp/SWE-bench_Verified</code>)</li>
-<li><strong>SWE-bench Multimodal</strong>: Tasks involving visual software domains (<code>princeton-nlp/SWE-bench_Multimodal</code>)</li>
-</ul>
-<h2 id="resource-requirements">Resource Requirements</h2>
-<p>The SWE-bench evaluation harness has the following resource requirements:</p>
-<ul>
-<li><strong>Storage</strong>: At least 120GB free space (for any cache level)</li>
-<li><strong>Memory</strong>: At least 16GB RAM recommended</li>
-<li><strong>CPU</strong>: 8+ cores recommended</li>
-<li><strong>Platform</strong>: x86_64 architecture recommended (arm64 support is experimental)</li>
-</ul>
-<h2 id="performance-benchmarks">Performance Benchmarks</h2>
-<p>Evaluation times for SWE-bench Lite (on a typical machine):</p>
-<table>
-<thead>
-<tr>
-<th>Configuration</th>
-<th>Time (cache level = env)</th>
-<th>Time (cache level = instance)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>16-core, max_workers=12</td>
-<td>~30 minutes</td>
-<td>~15 minutes</td>
-</tr>
-<tr>
-<td>8-core, max_workers=6</td>
-<td>~50 minutes</td>
-<td>~15 minutes</td>
-</tr>
-</tbody>
-</table>
-<h2 id="choosing-max_workers">Choosing <code>max_workers</code></h2>
-<p>The optimal number of workers depends on your system resources. We recommend:</p>
-<ul>
-<li>Use fewer than <code>min(0.75 * os.cpu_count(), 24)</code> workers</li>
-<li>For Docker Desktop, adjust based on CPUs available to Docker</li>
-<li>Overly high worker counts can slow down evaluation due to resource contention</li>
-</ul>
-<h2 id="log-files">Log Files</h2>
-<p>The harness generates logs in two directories:</p>
-<ul>
-<li><code>logs/build_images</code>: Docker build logs</li>
-<li><code>logs/run_evaluation</code>: Evaluation run logs</li>
-</ul>
-<p>Final evaluation results are stored in the <code>evaluation_results</code> directory.</p>
-<h2 id="troubleshooting">Troubleshooting</h2>
-<p>If you encounter issues:</p>
-<ol>
-<li><strong>Docker Space Issues</strong>: If Docker runs out of disk space, prune unused images and containers with <code>docker system prune -a</code></li>
-<li><strong>Build Failures</strong>: Check the build logs in <code>logs/build_images</code> for specific error details</li>
-<li><strong>Evaluation Failures</strong>: Examine logs in <code>logs/run_evaluation</code> to diagnose test failures</li>
-<li><strong>Resource Constraints</strong>: Reduce <code>--max_workers</code> if you experience memory pressure or system slowdowns</li>
-<li>Check Docker installation and permissions</li>
-<li>Verify sufficient disk space</li>
-</ol>
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-                
-              </article>
-            </div>
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+      <nav class="md-post__authors md-typeset">
+        
+          <span class="md-author">
+            <img src="https://github.com/klieret.png" alt="Kilian Lieret">
+          </span>
+        
+      </nav>
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2025-08-19 00:00:00+00:00">August 19, 2025</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="category/benchmarks/" class="md-meta__link">Benchmarks</a>, 
+              <a href="category/mini-swe-agent/" class="md-meta__link">mini-swe-agent</a></li>
+        
+        
           
+          <li class="md-meta__item">
+            
+              4 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="mini-swe-agent-roulette-mode-randomly-switching-between-models-at-every-step-can-boost-performance"><a class="toclink" href="2025/08/19/mini-roulette/">mini-SWE-agent roulette mode: Randomly switching between models at every step can boost performance</a></h2>
+<p>What if your agent uses a different LM at every turn? We let mini-SWE-agent randomly switch between GPT-5 and Sonnet 4 and it scored higher on SWE-bench than with either model separately.</p>
+
+    
+      <nav class="md-post__action">
+        <a href="2025/08/19/mini-roulette/">
+          Continue reading
+        </a>
+      </nav>
+    
+  </div>
+</article>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+      <nav class="md-post__authors md-typeset">
+        
+          <span class="md-author">
+            <img src="https://github.com/klieret.png" alt="Kilian Lieret">
+          </span>
+        
+      </nav>
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2025-08-08 00:00:00+00:00">August 8, 2025</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="category/benchmarks/" class="md-meta__link">Benchmarks</a>, 
+              <a href="category/mini-swe-agent/" class="md-meta__link">mini-swe-agent</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              11 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="gpt-5-on-swe-bench-with-mini-cost-performance-deep-dive"><a class="toclink" href="2025/08/08/gpt5/">GPT-5 on SWE-bench with <code>mini</code>: Cost &amp; performance deep-dive</a></h2>
+<p>This blog post covers the results of running <a href="https://mini-swe-agent.com">mini-SWE-agent</a> with GPT-5, GPT-5-mini, and GPT-5-nano.
+Results will be added to the <a href="https://swebench.com"><em>SWE-bench (bash-only)</em> leaderboard</a> shortly.</p>
+<div class="admonition abstract">
+<p class="admonition-title">GPT-5 is as good as Sonnet 4, but quite a bit cheaper</p>
+<ul>
+<li>GPT-5 is as good as Sonnet 4, but quite a bit cheaper</li>
+<li>For sacrificing only a little bit of performance (5%pt), GPT-5-mini is <em>incredibly</em> cheap</li>
+<li><code>GPT-5-nano</code> is even cheaper, I would say you pay half for half the performance</li>
+<li>You can reproduce our numbers for just $18 (with GPT-5-mini) using the command at the bottom!</li>
+</ul>
+</div>
+
+    
+      <nav class="md-post__action">
+        <a href="2025/08/08/gpt5/">
+          Continue reading
+        </a>
+      </nav>
+    
+  </div>
+</article>
+      
+      
+        
+          
+
+
+
+<nav class="md-pagination">
+  
+</nav>
+        
+      
+    </div>
+  </div>
+
           
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
@@ -1820,7 +1377,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../../guides/create_rag_datasets/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Create RAG Datasets">
+          <a href="../api/versioning/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Versioning">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1830,20 +1387,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Create RAG Datasets
+                Versioning
               </div>
             </div>
           </a>
         
         
           
-          <a href="../inference/" class="md-footer__link md-footer__link--next" aria-label="Next: Inference">
+          <a href="category/benchmarks/" class="md-footer__link md-footer__link--next" aria-label="Next: Benchmarks">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Inference
+                Benchmarks
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1879,10 +1436,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "content.action.edit", "navigation.footer", "content.code.copy", "content.footnote.tooltips", "header.autohide", "announce.dismiss", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "content.action.edit", "navigation.footer", "content.code.copy", "content.footnote.tooltips", "header.autohide", "announce.dismiss", "content.code.annotate"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      <script src="../assets/javascripts/bundle.92b07e13.min.js"></script>
       
     
   <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
