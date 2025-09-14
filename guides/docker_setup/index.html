@@ -1698,20 +1698,14 @@ docker<span class="w"> </span>system<span class="w"> </span>df
 <div class="highlight"><pre><span></span><code><span class="c1"># View Docker disk usage</span>
 docker<span class="w"> </span>system<span class="w"> </span>df
 
-<span class="c1"># Remove unused containers</span>
+<span class="c1"># Remove all stopped containers</span>
 docker<span class="w"> </span>container<span class="w"> </span>prune
 
-<span class="c1"># Remove unused images</span>
+<span class="c1"># Remove dangling images (untagged)</span>
 docker<span class="w"> </span>image<span class="w"> </span>prune
 
 <span class="c1"># Remove all unused Docker objects (containers, images, networks, volumes)</span>
 docker<span class="w"> </span>system<span class="w"> </span>prune
-
-<span class="c1"># Remove all stopped containers</span>
-docker<span class="w"> </span>container<span class="w"> </span>prune
-
-<span class="c1"># Remove all dangling images</span>
-docker<span class="w"> </span>image<span class="w"> </span>prune
 </code></pre></div>
 <h2 id="cache-level-configuration">Cache Level Configuration</h2>
 <p>SWE-bench provides different caching options to balance speed vs. storage:</p>
