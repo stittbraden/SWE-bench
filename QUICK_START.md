@@ -20,7 +20,7 @@ cd /Users/bradenstitt/projects/SWE-bench
 
 # Use the processed dataset that has the 'text' column
 PYTHONPATH=/Users/bradenstitt/projects/SWE-bench python3 swebench/inference/run_api.py \
-    --dataset_name_or_path princeton-nlp/SWE-bench_Lite \
+    --dataset_name_or_path princeton-nlp/SWE-bench_Lite_bm25_13K \
     --split test \
     --model_name_or_path copilot-cli \
     --output_dir ./copilot_results
