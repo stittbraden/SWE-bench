@@ -9,6 +9,7 @@ import os
 import time
 import dotenv
 import traceback
+import subprocess
 from pathlib import Path
 from tqdm.auto import tqdm
 import numpy as np
@@ -42,6 +43,7 @@ MODEL_LIMITS = {
     "gpt-4-0613": 8_192,
     "gpt-4-1106-preview": 128_000,
     "gpt-4-0125-preview": 128_000,
+    "copilot-cli": 200_000,  # Generous limit for Copilot CLI
 }
 
 # The cost per token for each model input.
@@ -61,6 +63,7 @@ MODEL_COST_PER_INPUT = {
     "gpt-4-32k": 0.00006,
     "gpt-4-1106-preview": 0.00001,
     "gpt-4-0125-preview": 0.00001,
+    "copilot-cli": 0.0,  # CLI tool, costs handled through GitHub Copilot subscription
 }
 
 # The cost per token for each model output.
@@ -80,6 +83,7 @@ MODEL_COST_PER_OUTPUT = {
     "gpt-4-32k": 0.00012,
     "gpt-4-1106-preview": 0.00003,
     "gpt-4-0125-preview": 0.00003,
+    "copilot-cli": 0.0,  # CLI tool, costs handled through GitHub Copilot subscription
 }
 
 # used for azure
@@ -169,6 +173,12 @@ def claude_tokenize(string: str, api) -> int:
     """Returns the number of tokens in a text string."""
     num_tokens = api.count_tokens(string)
     return num_tokens
+
+
+def claude_code_tokenize(string: str) -> int:
+    """Returns the approximate number of tokens in a text string for copilot CLI."""
+    # Rough approximation: 1 token per 4 characters (similar to other models)
+    return len(string) // 4
 
 
 def openai_inference(
@@ -320,6 +330,74 @@ def call_anthropic_v2(
         return None
 
 
+@retry(wait=wait_random_exponential(min=30, max=300), stop=stop_after_attempt(3))
+def call_copilot_cli(inputs, model_name_or_path, temperature, top_p, **model_args):
+    """
+    Calls the GitHub Copilot CLI to generate completions for the given inputs.
+
+    Args:
+    inputs (str): The inputs to generate completions for.
+    model_name_or_path (str): The name or path of the model to use (ignored for CLI).
+    temperature (float): The temperature to use (ignored for CLI).
+    top_p (float): The top_p to use (ignored for CLI).
+    **model_args (dict): A dictionary of model arguments (ignored for CLI).
+    
+    Returns:
+    tuple: (response_object, cost) where response_object contains the CLI output and cost is 0.0
+    """
+    try:
+        # Use the -p flag to provide a direct prompt to copilot CLI
+        cmd = ["copilot", "-p", inputs]
+        
+        # Calculate timeout based on input length (longer inputs need more time)
+        # Base timeout of 300s (5 min) + 1s per 1000 characters, max 600s (10 minutes)
+        base_timeout = 300  # 5 minutes base
+        char_based_timeout = len(inputs) // 1000
+        timeout = min(base_timeout + char_based_timeout, 600)  # Max 10 minutes
+        
+        logger.info(f"Calling Copilot CLI with timeout of {timeout}s for {len(inputs)} character prompt")
+        
+        # Run the command
+        result = subprocess.run(
+            cmd,
+            capture_output=True, 
+            text=True, 
+            timeout=timeout
+        )
+        
+        if result.returncode != 0:
+            logger.error(f"Copilot CLI failed with return code {result.returncode}")
+            logger.error(f"stderr: {result.stderr}")
+            logger.error(f"stdout: {result.stdout}")
+            return None
+        
+        # Create a response object similar to other APIs
+        class CLIResponse:
+            def __init__(self, content):
+                self.content = content
+                self.full_output = content
+        
+        response = CLIResponse(result.stdout.strip())
+        cost = 0.0  # CLI usage has no direct cost (covered by GitHub Copilot subscription)
+        
+        logger.info(f"GitHub Copilot CLI completed successfully in {timeout}s")
+        logger.info(f"Response length: {len(response.full_output)} characters")
+        return response, cost
+        
+    except subprocess.TimeoutExpired:
+        logger.error(f"GitHub Copilot CLI timed out after {timeout} seconds")
+        logger.error(f"Input length was {len(inputs)} characters")
+        return None
+    except FileNotFoundError:
+        logger.error("GitHub Copilot CLI (copilot) not found. Please ensure it's installed and in PATH")
+        return None
+    except Exception as e:
+        logger.error(f"Error calling GitHub Copilot CLI: {e}")
+        logger.error(f"Inputs length: {len(inputs)} characters")
+        traceback.print_exc()
+        return None
+
+
 def anthropic_inference(
     test_dataset,
     model_name_or_path,
@@ -398,6 +476,83 @@ def anthropic_inference(
                 output_dict["full_output"] = completion.completion
             output_dict["model_patch"] = extract_diff(output_dict["full_output"])
             print(json.dumps(output_dict), file=f, flush=True)
+            if max_cost is not None and total_cost >= max_cost:
+                print(f"Reached max cost {max_cost}, exiting")
+                break
+
+
+def copilot_cli_inference(
+    test_dataset,
+    model_name_or_path,
+    output_file,
+    model_args,
+    existing_ids,
+    max_cost,
+):
+    """
+    Runs inference on a dataset using the GitHub Copilot CLI.
+
+    Args:
+    test_dataset (datasets.Dataset): The dataset to run inference on.
+    model_name_or_path (str): The name or path of the model to use.
+    output_file (str): The path to the output file.
+    model_args (dict): A dictionary of model arguments.
+    existing_ids (set): A set of ids that have already been processed.
+    max_cost (float): The maximum cost to spend on inference (ignored for CLI).
+    """
+    # Filter dataset based on token limits
+    test_dataset = test_dataset.filter(
+        lambda x: claude_code_tokenize(x["text"]) <= MODEL_LIMITS[model_name_or_path],
+        desc="Filtering",
+        load_from_cache_file=False,
+    )
+    
+    # CLI doesn't use these parameters, but we'll extract them for consistency
+    temperature = model_args.pop("temperature", 0.2)
+    top_p = model_args.pop("top_p", 0.95 if temperature > 0 else 1)
+    print(f"Using temperature={temperature}, top_p={top_p} (ignored by CLI)")
+    
+    basic_args = {
+        "model_name_or_path": model_name_or_path,
+    }
+    total_cost = 0
+    print(f"Filtered to {len(test_dataset)} instances")
+    
+    with open(output_file, "a+") as f:
+        for datum in tqdm(test_dataset, desc=f"Inference for {model_name_or_path}"):
+            instance_id = datum["instance_id"]
+            if instance_id in existing_ids:
+                continue
+                
+            output_dict = {"instance_id": instance_id}
+            output_dict.update(basic_args)
+            output_dict["text_inputs"] = datum["text"]
+            
+            try:
+                completion, cost = call_copilot_cli(
+                    output_dict["text_inputs"],
+                    model_name_or_path,
+                    temperature,
+                    top_p,
+                    **model_args,
+                )
+                
+                if completion is None:
+                    logger.error(f"Failed to get completion for instance {instance_id}")
+                    continue
+                    
+            except Exception as e:
+                logger.error(e)
+                traceback.print_exc()
+                continue
+                
+            total_cost += cost
+            print(f"Total Cost: {total_cost:.2f}")
+            
+            output_dict["full_output"] = completion.full_output
+            output_dict["model_patch"] = extract_diff(output_dict["full_output"])
+            print(json.dumps(output_dict), file=f, flush=True)
+            
             if max_cost is not None and total_cost >= max_cost:
                 print(f"Reached max cost {max_cost}, exiting")
                 break
@@ -503,6 +658,8 @@ def main(
         anthropic_inference(**inference_args)
     elif model_name_or_path.startswith("gpt"):
         openai_inference(**inference_args)
+    elif model_name_or_path.startswith("copilot"):
+        copilot_cli_inference(**inference_args)
     else:
         raise ValueError(f"Invalid model name or path {model_name_or_path}")
     logger.info("Done!")
